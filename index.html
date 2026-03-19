@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musoxon Gulmuhammadov · Portfolio</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ---------- RESET & VARIABLES ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #fafbfc;
+            --surface: #ffffff;
+            --primary: #0a66c2;   /* professional LinkedIn blue */
+            --primary-light: #e6f0ff;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-tertiary: #64748b;
+            --border-light: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+            --transition: all 0.2s ease;
+        }
+
+        body {
+            font-family: "Inter", system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* ---------- TYPOGRAPHY ---------- */
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ---------- HEADER / NAV ---------- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.25rem;
+            border-radius: 40px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* ---------- HERO SECTION ---------- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        .hero-tagline {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin: 1.5rem 0 2rem;
+            max-width: 500px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .contact-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .contact-icon i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        .contact-icon:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .stat-item {
+            text-align: left;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .stat-label {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        .hero-image {
+            background: var(--primary-light);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            border: 1px solid rgba(10,102,194,0.2);
+        }
+        .code-snip {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            width: 100%;
+            box-shadow: var(--shadow-md);
+        }
+        .code-snip pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* ---------- PROJECTS GRID ---------- */
+        .section {
+            margin-bottom: 5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            padding: 1.5rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-light);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+            font-size: 1.6rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .tech-tag {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-top: 1px solid var(--border-light);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+        .project-link i {
+            transition: transform 0.2s;
+        }
+        .project-link:hover i {
+            transform: translateX(4px);
+        }
+
+        /* ---------- SKILLS ---------- */
+        .skills-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        .skill-item {
+            background: white;
+            border: 1px solid var(--border-light);
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .skill-item:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            transform: scale(1.02);
+        }
+
+        /* ---------- CONTACT SECTION ---------- */
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            justify-content: space-between;
+            align-items: center;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            width: 2rem;
+        }
+        .contact-item a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .contact-item a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 800px) {
+            h1 { font-size: 2.5rem; }
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .contact-grid {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        @media (max-width: 500px) {
+            body { padding: 1rem; }
+            .header { flex-direction: column; align-items: start; }
+            .hero-stats { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header with language switcher -->
+        <header class="header">
+            <div class="logo">Musoxon G.</div>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="uz">Uz</button>
+                <button class="lang-btn" data-lang="ru">Ru</button>
+                <button class="lang-btn" data-lang="en">En</button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div>
+                <div class="hero-tagline" data-i18n="heroTagline">Texnologiya izlanuvchisi</div>
+                <h1>Musoxon <br>Gulmuhammadov</h1>
+                <div class="hero-description" data-i18n="heroDesc">
+                    23 yosh, innovatsion loyihalar yaratuvchi. Maqsad: texnologiyada yuksak cho‘qqilarni zabt etish.
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:mgulmaxammadov@gmail.com" class="contact-icon"><i class="fas fa-envelope"></i> mgulmaxammadov@gmail.com</a>
+                    <a href="tel:+998917651202" class="contact-icon"><i class="fas fa-phone-alt"></i> +998 91 765 12 02</a>
+                    <a href="https://t.me/dizaynerlar_online" target="_blank" class="contact-icon"><i class="fab fa-telegram"></i> @dizaynerlar_online</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-number">5+</span> <span class="stat-label" data-i18n="statProjects">loyihalar</span></div>
+                    <div class="stat-item"><span class="stat-number">3</span> <span class="stat-label" data-i18n="statPlatforms">platformalar</span></div>
+                    <div class="stat-item"><span class="stat-number">∞</span> <span class="stat-label" data-i18n="statCreative">kreativlik</span></div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="code-snip">
+                    <pre>
+<span style="color:#f92672;">const</span> <span style="color:#a6e22e;">musoxon</span> = {
+  passion: <span style="color:#e6db74;">"technology"</span>,
+  goal: <span style="color:#e6db74;">"innovation"</span>,
+  skills: [<span style="color:#e6db74;">"AI"</span>, <span style="color:#e6db74;">"3D"</span>, <span style="color:#e6db74;">"GDevelop"</span>, <span style="color:#e6db74;">"UE5"</span>]
+};</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section">
+            <h2 data-i18n="projectsTitle">Loyihalar</h2>
+            <div class="projects-grid">
+                <!-- AI Book -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-book"></i></div>
+                    <h3 class="project-title" data-i18n="project1Title">Life Re:Coded</h3>
+                    <p class="project-desc" data-i18n="project1Desc">AI yordamida yozilgan kitob. Texnologiya va insoniyat kelajagi haqida.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AI</span>
+                        <span class="tech-tag">Writing</span>
+                        <span class="tech-tag">Google Play</span>
+                    </div>
+                    <a href="https://play.google.com/store/books/details/Musoxon_G_Life_Re_Coded?id=JRpOEQAAQBAJ" target="_blank" class="project-link">
+                        <span data-i18n="viewProject">Loyihani ko‘rish</span> <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <!-- GDevelop Game -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-gamepad"></i></div>
+                    <h3 class="project-title" data-i18n="project2Title">Infinity One</h3>
+                    <p class="project-desc" data-i18n="project2Desc">GDevelop da yaratilgan 2D platformer o‘yin.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">GDevelop</span>
+                        <span class="tech-tag">2D</span>
+                        <span class="tech-tag">Game Dev</span>
+                    </div>
+                    <a href="https://m.taptap.io/app/infinity-one-33915926?share_id=21d65e005a23&utm_medium=share&utm_source=copylink" target="_blank" class="project-link">
+                        <span data-i18n="viewProject">Loyihani ko‘rish</span> <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <!-- UE5 Asset -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-cube"></i></div>
+                    <h3 class="project-title" data-i18n="project3Title">UE5 Environment</h3>
+                    <p class="project-desc" data-i18n="project3Desc">Blender va Unreal Engine 5 uchun 3D environment asset.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Blender</span>
+                        <span class="tech-tag">UE5</span>
+                        <span class="tech-tag">3D</span>
+                    </div>
+                    <a href="https://www.fab.com/listings/ba3edfe2-979f-478c-92f1-ad2beb2af4b7" target="_blank" class="project-link">
+                        <span data-i18n="viewProject">Loyihani ko‘rish</span> <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <!-- Telegram Channel -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fab fa-telegram"></i></div>
+                    <h3 class="project-title" data-i18n="project4Title">Dizaynerlar Online</h3>
+                    <p class="project-desc" data-i18n="project4Desc">Shaxsiy kanal va dizayn jamoasi. 1000+ aʼzo.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Community</span>
+                        <span class="tech-tag">Design</span>
+                        <span class="tech-tag">Telegram</span>
+                    </div>
+                    <a href="https://t.me/dizaynerlar_online" target="_blank" class="project-link">
+                        <span data-i18n="viewProject">Loyihani ko‘rish</span> <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <h2 data-i18n="skillsTitle">Ko‘nikmalar</h2>
+            <div class="skills-cloud">
+                <span class="skill-item">HTML5</span>
+                <span class="skill-item">CSS3</span>
+                <span class="skill-item">GDevelop</span>
+                <span class="skill-item">Unreal Engine 5</span>
+                <span class="skill-item">Blender</span>
+                <span class="skill-item">Figma</span>
+                <span class="skill-item">Illustrator</span>
+                <span class="skill-item">AI Tools</span>
+                <span class="skill-item">3D Modeling</span>
+                <span class="skill-item">Game Design</span>
+                <span class="skill-item">Web Dasturlash</span>
+                <span class="skill-item">MS Office</span>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section">
+            <h2 data-i18n="contactTitle">Aloqa</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:mgulmaxammadov@gmail.com">mgulmaxammadov@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+998917651202">+998 91 765 12 02</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-telegram"></i>
+                    <a href="https://t.me/@Musoxon2002/" target="_blank">@Musoxon2002</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Namangan, Cheksizlik</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 Musoxon Gulmuhammadov · <span data-i18n="footerText">Barcha huquqlar himoyalangan</span></p>
+        </footer>
+    </div>
+
+    <!-- JavaScript for multi-language -->
+    <script>
+        (function() {
+            // Translations
+            const translations = {
+                uz: {
+                    heroTagline: "Texnologiya izlanuvchisi",
+                    heroDesc: "23 yosh, innovatsion loyihalar yaratuvchi. Maqsad: texnologiyada yuksak cho‘qqilarni zabt etish.",
+                    statProjects: "loyihalar",
+                    statPlatforms: "platformalar",
+                    statCreative: "kreativlik",
+                    projectsTitle: "Loyihalar",
+                    project1Title: "Life Re:Coded",
+                    project1Desc: "AI yordamida yozilgan kitob. Texnologiya va insoniyat kelajagi haqida.",
+                    project2Title: "Infinity One",
+                    project2Desc: "GDevelop da yaratilgan 2D platformer o‘yin.",
+                    project3Title: "UE5 Environment",
+                    project3Desc: "Blender va Unreal Engine 5 uchun 3D environment asset.",
+                    project4Title: "Dizaynerlar Online",
+                    project4Desc: "Shaxsiy kanal va dizayn jamoasi. 1000+ aʼzo.",
+                    viewProject: "Loyihani ko‘rish",
+                    skillsTitle: "Ko‘nikmalar",
+                    contactTitle: "Aloqa",
+                    footerText: "Barcha huquqlar himoyalangan"
+                },
+                ru: {
+                    heroTagline: "Исследователь технологий",
+                    heroDesc: "23 года, создаю инновационные проекты. Цель: достичь высот в технологиях.",
+                    statProjects: "проектов",
+                    statPlatforms: "платформы",
+                    statCreative: "креатив",
+                    projectsTitle: "Проекты",
+                    project1Title: "Life Re:Coded",
+                    project1Desc: "Книга, написанная с помощью ИИ. О технологиях и будущем человечества.",
+                    project2Title: "Infinity One",
+                    project2Desc: "2D платформер, созданный в GDevelop.",
+                    project3Title: "UE5 Environment",
+                    project3Desc: "3D окружение для Blender и Unreal Engine 5.",
+                    project4Title: "Dizaynerlar Online",
+                    project4Desc: "Личный канал и дизайн-сообщество. 1000+ участников.",
+                    viewProject: "Смотреть проект",
+                    skillsTitle: "Навыки",
+                    contactTitle: "Контакты",
+                    footerText: "Все права защищены"
+                },
+                en: {
+                    heroTagline: "Technology Seeker",
+                    heroDesc: "23 years old, creator of innovative projects. Goal: to reach the highest peaks in technology.",
+                    statProjects: "projects",
+                    statPlatforms: "platforms",
+                    statCreative: "creativity",
+                    projectsTitle: "Projects",
+                    project1Title: "Life Re:Coded",
+                    project1Desc: "A book written with AI. About technology and the future of humanity.",
+                    project2Title: "Infinity One",
+                    project2Desc: "2D platformer game created in GDevelop.",
+                    project3Title: "UE5 Environment",
+                    project3Desc: "3D environment asset for Blender and Unreal Engine 5.",
+                    project4Title: "Dizaynerlar Online",
+                    project4Desc: "Personal channel and design community. 1000+ members.",
+                    viewProject: "View project",
+                    skillsTitle: "Skills",
+                    contactTitle: "Contact",
+                    footerText: "All rights reserved"
+                }
+            };
+
+            // Get all elements with data-i18n attribute
+            const elements = document.querySelectorAll('[data-i18n]');
+            const langButtons = document.querySelectorAll('.lang-btn');
+
+            function setLanguage(lang) {
+                if (!translations[lang]) return;
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+                // Update active button
+                langButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                    }
+                });
+                // Optionally change html lang attribute
+                document.documentElement.lang = lang;
+            }
+
+            // Add click listeners to language buttons
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const lang = e.target.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
+
+            // Set default language (Uzbek)
+            setLanguage('uz');
+        })();
+    </script>
+
+    <!-- Optional small interactivity: smooth hover for cards already in CSS, but we can add a tiny animation on scroll -->
+    <script>
+        // Intersection Observer for fade-in effect (optional)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-card, .skill-item').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
